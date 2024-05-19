@@ -1,0 +1,121 @@
+.scenario-table {
+  width: 80%;
+  padding: 60px 40px;
+  background-color: #0c0c0c;
+  width: 100%;
+  color: white;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #fff;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border-bottom: 1px solid #000;
+  text-align: center;
+}
+
+th {
+  background-color: #000;
+}
+tbody {
+  background-color: lightgray;
+  color: #000;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.bg-blue {
+  background-color: #007bff;
+  text-decoration: none;
+}
+
+.vehicle-animation-towords {
+  animation-name: animation;
+  /* animation-duration: 4s; */
+}
+@keyframes animation {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: 100%;
+    top: 0px;
+  }
+}
+
+.vehicle-animation-backwards {
+  animation-name: animation-backwards;
+  /* animation-duration: 4s; */
+}
+@keyframes animation-backwards {
+  0% {
+    left: 100%;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+
+.vehicle-animation-upwards {
+  animation-name: animation-upwards;
+  /* animation-duration: 4s; */
+}
+
+@keyframes animation-upwards {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: -100%;
+  }
+}
+
+.vehicle-animation-downwards {
+  animation-name: animation-downwards;
+  /* animation-duration: 4s; */
+}
+
+@keyframes animation-downwards {
+  0% {
+    left: 0px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 100%;
+  }
+}
