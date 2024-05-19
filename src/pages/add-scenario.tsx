@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../css/add-scenario.css";
 import ScenarioForm from "../components/form/ScenarioForm";
 import { useNavigate } from "react-router-dom";
+import { endpoint } from "../dev";
 
 const AddScenario = () => {
   const nagivate = useNavigate();
@@ -12,7 +13,7 @@ const AddScenario = () => {
       setLoading(true);
 
       // Make POST request to submit the form data
-      const response = await fetch("http://localhost:3000/scenarios", {
+      const response = await fetch(`${endpoint}/scenarios`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

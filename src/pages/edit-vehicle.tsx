@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../css/add-scenario.css";
 import ScenarioForm from "../components/form/ScenarioForm";
 import { useNavigate, useParams } from "react-router-dom";
+import { endpoint } from "../dev";
 
 const EditVehicle = () => {
   const nagivate = useNavigate();
@@ -9,7 +10,7 @@ const EditVehicle = () => {
   const id = routeParams.id;
   const fetchVehicle = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/vehicles/${id}`);
+      const response = await fetch(`${endpoint}/vehicles/${id}`);
       const data = await response.json();
       setVehicle(data);
     } catch (error) {
@@ -19,7 +20,7 @@ const EditVehicle = () => {
 
   const fetchScenarios = async () => {
     try {
-      const response = await fetch("http://localhost:3000/scenarios");
+      const response = await fetch(`${endpoint}/scenarios`);
       if (response.ok) {
         const data = await response.json();
         setScenarios(data);
@@ -43,7 +44,7 @@ const EditVehicle = () => {
       setLoading(true);
 
       // Make POST request to submit the form data
-      const response = await fetch(`http://localhost:3000/vehicles/${id}`, {
+      const response = await fetch(`${endpoint}/vehicles/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ChangeEvent } from "react";
 import Button from "./lib/button";
 import "../css/simulation.css";
+import { endpoint } from "../dev";
 interface Scenario {
   id: number;
   name: string;
@@ -37,7 +38,7 @@ const Simulation: React.FC = () => {
 
   const fetchScenarios = async () => {
     try {
-      const response = await fetch("http://localhost:3000/scenarios");
+      const response = await fetch(`${endpoint}/scenarios`);
       const data = await response.json();
       setScenarios(data);
       setSelectedScenario(data[0]);
@@ -48,7 +49,7 @@ const Simulation: React.FC = () => {
 
   const fetchVehicles = async () => {
     try {
-      const response = await fetch("http://localhost:3000/vehicles");
+      const response = await fetch(`${endpoint}/vehicles`);
       const data = await response.json();
       setVehicles(data);
     } catch (error) {

@@ -2,6 +2,7 @@ import React from "react";
 import "../css/all-scenario.css";
 import { useNavigate } from "react-router-dom";
 import Simulation from "../components/simulation";
+import { endpoint } from "../dev";
 
 interface Vehicle {
   id: number;
@@ -22,7 +23,7 @@ const Home = () => {
   const [error, setError] = React.useState("");
   const handletoDeleteId = (id: number) => async () => {
     try {
-      const response = await fetch(`http://localhost:3000/vehicles/${id}`, {
+      const response = await fetch(`${endpoint}/vehicles/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -35,7 +36,7 @@ const Home = () => {
 
   const fetchVehicle = async () => {
     try {
-      const response = await fetch("http://localhost:3000/vehicles");
+      const response = await fetch(`${endpoint}/vehicles`);
       const data = await response.json();
       setVehicle(data);
       setLoading(false);

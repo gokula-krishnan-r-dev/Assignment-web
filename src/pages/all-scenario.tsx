@@ -2,6 +2,7 @@ import React from "react";
 import "../css/all-scenario.css";
 import Button from "../components/lib/button";
 import { Link, useNavigate } from "react-router-dom";
+import { endpoint } from "../dev";
 
 interface Scenario {
   id: number;
@@ -17,7 +18,7 @@ const ScenarioTable = () => {
   const [error, setError] = React.useState("");
   const fetchScenarios = async () => {
     try {
-      const response = await fetch("http://localhost:3000/scenarios");
+      const response = await fetch(`${endpoint}/scenarios`);
       const data = await response.json();
       setScenarios(data);
       setLoading(false);
@@ -28,7 +29,7 @@ const ScenarioTable = () => {
   };
   const handletoDeleteId = (id: number) => async () => {
     try {
-      const response = await fetch(`http://localhost:3000/scenarios/${id}`, {
+      const response = await fetch(`${endpoint}/scenarios/${id}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -42,7 +43,7 @@ const ScenarioTable = () => {
 
   const handletoDelete = async () => {
     try {
-      const response = await fetch("http://localhost:3000/scenarios/all", {
+      const response = await fetch(`${endpoint}/scenarios/all`, {
         method: "POST",
       });
       const data = await response.json();
